@@ -19,9 +19,12 @@ class QuestionsController < ApplicationController
         # Questionモデルを初期化
         @question = Question.new(question_params)
         # QuestionモデルをDBへ保存
-        @question.save
+        if @question.save
         # showへリダイレクト
-        redirect_to @question
+            redirect_to @question
+        else
+            render 'new', status: :unprocessable_entity #エラーコード422で返す
+        end
     end
     
     # 質問の編集
