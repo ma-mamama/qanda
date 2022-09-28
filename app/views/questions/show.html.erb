@@ -18,9 +18,12 @@
         Name:<br>
         <%= answer.name %>
     </p>
-        <p>
         Content:<br>
         <%= answer.content %>
+    </p>
+    <p>
+        <%= link_to 'Destroy Answer', [answer.question, answer],
+            data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
     </p>
 <% end %>
 
