@@ -1,0 +1,50 @@
+<h1>Show</h1>
+<p>
+    Title:<br>
+    <%= @question.title %>
+</p>
+<p>
+    Name:<br>
+    <%= @question.name %>
+</p>
+<p>
+    Content:<br>
+    <%= @question.content %>
+</p>
+
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+    <p>
+        Name:<br>
+        <%= answer.name %>
+    </p>
+        Content:<br>
+        <%= answer.content %>
+    </p>
+    <p>
+        good: <%= answer.good %><br>
+         <%= link_to 'add_good', add_good_question_answer_path(@question, answer.id),
+            data: { turbo_method: 'put' } %>
+    </p>
+    <p>
+        <%= link_to 'Destroy Answer', [answer.question, answer],
+            data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
+    </p>
+<% end %>
+
+<h2>Add a answer</h2>
+<%= form_with model: [@question, @question.answers.build] do |form| %>
+    <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :content %><br>
+        <%= form.text_area :content %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
+
+<%= link_to 'top', questions_path %>

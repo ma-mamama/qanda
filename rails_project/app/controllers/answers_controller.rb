@@ -13,6 +13,14 @@ class AnswersController < ApplicationController
         @answer.destroy
         redirect_to @question, status: :see_other
     end
+
+    #回答にいいね
+    def add_good
+        @answer = Answer.find(params[:id])
+        @answer.increment!(:good, 1)
+        redirect_to request.referer
+        
+    end
     
     private
     def answer_params

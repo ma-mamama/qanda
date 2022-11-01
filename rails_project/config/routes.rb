@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "questions#index"
   resources :questions do
-    resources :answers
+    resources :answers do
+      put :add_good, on: :member
+    end
   end
 end
