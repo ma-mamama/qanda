@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+    db:
+      image: mysql:8.0
+      platform: linux/x86_64
+      ports:
+        - 3309:3306
+      volumes:
+        - type: volume
+          source: mysql-volume
+          target: /var/lib/mysql
+        - type: bind
+          source: ./mysql/sql
+          target: /docker-entrypoint-initdb.d
+        - type: bind
+          source: ./mysql/my.cnf
+          target: /etc/mysql/conf.d/my.cnf
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: qanda
+        MYSQL_USER: docker
+        MYSQL_PASSWORD: docker
+        TZ: 'Asia/Tokyo'
+
+    web:
+        build: ./app
+        working_dir: /rails_project
+        command: bash -c "rails s -p 3000 -b '0.0.0.0'"
+        volumes:
+            - type: bind
+              source: ./rails_project
+              target: /rails_project
+            - type: bind
+              source: ./bundle
+              target: /usr/local/bundle 
+        ports:
+            - 80:3000
+        depends_on:
+            - db 
+        tty: true
+        privileged: true
+        stdin_open: true
+
+volumes:
+  mysql-volume:
+    name: mysql-qanda
