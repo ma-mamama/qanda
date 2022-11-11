@@ -16,8 +16,8 @@ class AnswersController < ApplicationController
 
     #回答にいいね
     def add_good
-        @answer = Answer.find(params[:id])
-        @answer.increment!(:good, 1)
+        answer = Answer.find(params[:id])
+        answer.increment!(:good, 1)
         redirect_to request.referer
         
     end
