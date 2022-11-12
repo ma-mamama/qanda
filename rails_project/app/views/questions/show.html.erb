@@ -14,22 +14,7 @@
 
 <h2>Answers</h2>
 <% @question.answers.each do |answer| %>
-    <p>
-        Name:<br>
-        <%= answer.name %>
-    </p>
-        Content:<br>
-        <%= answer.content %>
-    </p>
-    <p>
-        good: <%= answer.good %><br>
-         <%= link_to 'add_good', add_good_question_answer_path(@question, answer.id),
-            data: { turbo_method: 'put' } %>
-    </p>
-    <p>
-        <%= link_to 'Destroy Answer', [answer.question, answer],
-            data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
-    </p>
+    <%= render partial: "questions/answer", locals: {question_id: @question.id, answer: answer} %>
 <% end %>
 
 <h2>Add a answer</h2>
