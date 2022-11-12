@@ -18,8 +18,12 @@ class AnswersController < ApplicationController
     def add_good
         answer = Answer.find(params[:id])
         answer.increment!(:good, 1)
-        redirect_to request.referer
         
+        render turbo_stream: turbo_stream.replace(
+            "answer_#{answer.id}",
+            partial: 'questions/answer',
+            locals: { question_id: params[:question_id], answer: answer }
+        )
     end
     
     private
