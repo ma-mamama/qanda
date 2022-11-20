@@ -1,0 +1,22 @@
+<turbo-frame id=<%= "answer_#{answer.id}" %>>
+    <div>
+        <p>
+            Name:<br>
+            <%= answer.name %>
+        </p>
+            Content:<br>
+            <%= answer.content %>
+        </p>
+        <p>
+            good: <%= answer.good %><br>
+            <%= link_to add_good_question_answer_path(question_id, answer.id),
+                data: { turbo_method: 'put' },remote: true do %>
+                <%= tag.span class: "image_good"%>
+            <% end %>
+        </p>
+        <p>
+            <%= link_to 'Destroy Answer', [answer.question, answer],
+                data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
+        </p>
+    </div>
+</turbo-frame>
