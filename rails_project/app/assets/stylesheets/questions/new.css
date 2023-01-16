@@ -1,0 +1,17 @@
+body {
+    background-color: #9caedb;
+}
+
+h1 {
+  padding: 0.2em 1.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6; 
+  border-bottom: solid 3px #d7d7d7;
+   width: 200px;
+}
+.class2{
+   position: absolute;
+   top: 90px;
+   left: 220px;
+}
