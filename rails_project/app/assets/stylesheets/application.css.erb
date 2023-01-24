@@ -10,18 +10,41 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require_tree .
+ * require_
+  text-align:center;tree .
  *= require_self
  */
 
-.header_1{
-  font-size: 300%;
-  text-align:center;
-  padding:20px 0;
+body {
+  margin: 0;
+  margin: 0px;
 }
+
+.header_1{
+  font-size: 200%;
+  text-align:center;
+  <!--padding:20px 0;-->
+  justify-content: center;
+  margin:auto;
+}
+
 .header_2{
   background: #FFD400;
+  <!--height: 100px;-->
   padding: 1rem 2rem;
   border-top: 3px solid #000;
-  border-bottom: 3px solid #000
+  border-bottom: 3px solid #000;
+  display: flex;
+  <!--z-index:1001;-->
+  <!--position: fixed;--> ＃ずっとのこる-->
+  <!--width: 100%;-->
+}
+
+.header_3{
+  float:left;
+  flex-basis:20%;
+}
+
+.header_4{
+  flex-basis:20%;
 }
