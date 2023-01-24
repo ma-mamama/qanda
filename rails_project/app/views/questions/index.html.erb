@@ -1,27 +1,60 @@
 <% content_for :css do %>
     <%= stylesheet_link_tag 'questions/index' %>
 <% end %>
+<body>
+<br>
+<br>
+<br>
 
-<h1>Questions</h1>
-<%= link_to 'new', new_question_path %>
+<h1>質問一覧</h1>
+
+<% @questions.each do |question| %>
 <table>
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Name</th>
-        <th>Content</th>
-        <th></th>
+        <td>
+            <table>
+                <tr>
+                    <td width="30"></td>
+                    <td width="60">質問：</td>
+                    <td width="460"><%= question.title %></td>
+                    <td width="200"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="30"></td>
+                    <td width="60">内容：</td>
+                    <td width="460"><%= question.content %></td>
+                    <td width="200"></td>
+                    <td>from . </td>
+                    <td width="150"><%= question.name %></td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td><%= link_to question_path(question) do %> <button class="btn btn-secondary btn-lg show" >詳細</button><%end%></td><td></td>
+                    <td><%= link_to edit_question_path(question) do %> <button class="btn btn-secondary btn-lg edit" >編集</button><%end%></td><td></td>
+                    <td><%= link_to question_path(question), data: 
+                        {turbo_method: 'delete', turbo_confirm: '削除してもよろしいですか？' } do %><button class="btn btn-secondary btn-lg delete" >削除</button><%end%></td><td></td>
+                </tr>
+                <!--<tr>-->
+                <!--    <td class="hidden">ID</td>-->
+                <!--    <td class="hidden"><%= question.id %></td>-->
+                <!--</tr>-->
+            </table>
+        </td>
     </tr>
-    <% @questions.each do |question| %>
-    <tr>
-        <td><%= question.id %></td>
-        <td><%= question.title %></td>
-        <td><%= question.name %></td>
-        <td><%= question.content %></td>
-        <td><%= link_to 'show' , question_path(question) %></td>
-        <td><%= link_to 'edit' , edit_question_path(question) %></td>
-        <td><%= link_to 'destroy' , question_path(question),
-            data: {turbo_method: 'delete', turbo_confirm: 'Are_you_sure?' }%></td>
-    </tr>
-    <% end %>
 </table>
+<div class="padding">
+<p class="hr"></p>
+</div>
+<p class="height"></p>
+<% end %>
+
+
+<div class="right">
+<%= link_to '質問を入力', new_question_path %>
+</div>
+</body>

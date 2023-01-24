@@ -1,0 +1,58 @@
+body {
+    background-color: #FDF5E6;
+    /*background-size:cover;*/
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hr {
+    border: 2px solid black;
+    max-width: 900px;
+}
+
+.right {
+    float:right;
+}
+
+.show {
+    background-color: #FFE4E1;
+    border: 1px solid #333;
+    padding: 5px 20px;
+    /*--水平方向 垂直方向 影のぼかし 色--*/
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.3); 
+	border-radius:10px;
+}
+
+.edit {
+    background-color: #E0FFFF;
+    border: 1px solid #333;
+    padding: 5px 20px;
+    /*--水平方向 垂直方向 影のぼかし 色--*/
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.3); 
+	border-radius:10px;
+}
+
+.delete {
+    background-color: #CBFFD3;
+    border: 1px solid #333;
+    padding: 5px 20px;
+    /*--水平方向 垂直方向 影のぼかし 色--*/
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.3); 
+	border-radius:10px;
+}
+
+h1 {
+     margin-left: 30px;
+}
+
+.height {
+     line-height:50px;
+}
+
+.padding {
+     margin-left: 30px;
+}
+
+
