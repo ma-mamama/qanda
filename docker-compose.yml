@@ -11,10 +11,10 @@ services:
           source: mysql-volume
           target: /var/lib/mysql
         - type: bind
-          source: ./mysql/sql
+          source: ./docker/mysql/sql
           target: /docker-entrypoint-initdb.d
         - type: bind
-          source: ./mysql/my.cnf
+          source: ./docker/mysql/my.cnf
           target: /etc/mysql/conf.d/my.cnf
       environment:
         MYSQL_ROOT_PASSWORD: root
@@ -24,7 +24,7 @@ services:
         TZ: 'Asia/Tokyo'
 
     web:
-        build: ./app
+        build: ./docker/app
         working_dir: /rails_project
         #command: bash -c "rails s -p 3000 -b '0.0.0.0'"
         volumes:
