@@ -1,0 +1,29 @@
+@import "bootstrap";
+
+body {
+  margin: 0px;
+}
+
+.header_1 {
+  font-size: 200%;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.header_2 {
+  background: #FFD400;
+  padding: 1rem 2rem;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  display: flex;
+}
+
+.header_3{
+  float:left;
+  flex-basis:20%;
+}
+
+.header_4{
+  flex-basis:20%;
+}
