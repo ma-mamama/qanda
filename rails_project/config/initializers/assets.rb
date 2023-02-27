@@ -10,6 +10,8 @@ Rails.application.config.assets.precompile += %w(
     questions/new.css
     questions/edit.css
     common/header.css
+    bootstrap.min.js
+    popper.js
  )
 
 # Add additional assets to the asset load path.
