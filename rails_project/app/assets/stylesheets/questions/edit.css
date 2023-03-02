@@ -1,18 +1,18 @@
 body {
-    background-color: #ebc781;
+    background-color: #FDE8DF;
 }
 
 h1 {
-  padding: 0.2em 1.5em;/*文字の上下 左右の余白*/
-  color: #494949;/*文字色*/
-  background: #f4f4f4;/*背景色*/
-  border-left: solid 5px #7db4e6;/*左線*/
-  border-bottom: solid 3px #d7d7d7;/*下線*/
-  width: 100px;
+  padding: 1rem 2rem;
+  border-left: 10px double #000;
+  background: #fafa73;
+  width: 300px;
+  margin-top: 20px 
+  
 }
 
 .class1{
    position: absolute;
-   top: 90px;
-   left: 220px;
+	bottom: 20px;
+	right:20px;
 }
