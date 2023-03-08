@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers do
       put :add_good, on: :member
+      put :add_bestanswer, on: :member
     end
   end
 end
