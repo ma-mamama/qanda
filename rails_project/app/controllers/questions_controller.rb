@@ -7,6 +7,11 @@ class QuestionsController < ApplicationController
   # 質問詳細ページ表示
   def show
     @question = Question.find(params[:id])
+    if @question.bestanswer_id.nil? then
+      render 'questions/show/unresolved'
+    else
+      render 'questions/show/resolved'
+    end
   end
 
   # 質問の作成

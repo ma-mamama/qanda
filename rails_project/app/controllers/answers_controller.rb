@@ -28,6 +28,16 @@ class AnswersController < ApplicationController
     redirect_to request.referer
   end
 
+  # ベストアンサーを登録する
+  def add_bestanswer
+    @question = Question.find(params[:question_id])
+
+    @question.update(bestanswer_id: params[:id])
+    @question.save
+    redirect_to question_path(@question), status: :see_other
+    # end
+  end
+  
   private
 
   def answer_params
