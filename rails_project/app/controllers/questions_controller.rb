@@ -7,10 +7,12 @@ class QuestionsController < ApplicationController
   # 質問詳細ページ表示
   def show
     @question = Question.find(params[:id])
-    if @question.bestanswer_id.nil? then
-      render 'questions/show/unresolved'
-    else
+    if id = @question.bestanswer_id
+      @bestanswer = @question.answers.find(id)
+      @answer = @question.answers.where('id != ?', id).order(good: :desc)
       render 'questions/show/resolved'
+    else
+      render 'questions/show/unresolved'
     end
   end
 

@@ -12,8 +12,9 @@
     </div>
     <div class="show-footer">
         <div>
-            <%= form_with url: add_bestanswer_question_answer_path(question_id, answer.id), method: :put do |form| %>
-                <%= form.submit formmethod: :put %>
+            <%= link_to add_bestanswer_question_answer_path(question_id, answer.id),
+                data: { turbo_method: 'put' } do %>
+                <button type="button" class="btn btn-primary">ベストアンサーに登録する</button>
             <% end %>
         </div>
         <div>

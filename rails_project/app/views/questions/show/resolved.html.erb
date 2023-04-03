@@ -22,8 +22,34 @@
     </div>
 </div>
  
+<div class="show-container show-answer">
+    <div class="show-header">ベストアンサー</div>
+        <div class="show-box">
+            <div class="show-box-name">
+                <div>氏名</div> 
+                <div><%= @bestanswer.name %></div>
+            </div>
+        <div class="show-box-contents">
+            <div>回答内容</div>
+            <div><%= safe_join(@bestanswer.content.split("\n"), tag(:br)) %></div>
+        </div>
+    </div>
+    <div class="show-footer">
+        <div>
 
-<% @question.answers.each_with_index do |answer, i| %>
+        </div>
+        <div>
+                いいね
+        </div>
+        <%= tag.div class: "image_good"%>
+        <div>
+            <%= @bestanswer.good %>
+        </div>
+</div>
+    </div>
+</div>
+
+<% @answer.each_with_index do |answer, i| %>
     <div class="show-container show-answer">
         <div class="show-header">回答 <span><%= i + 1 %></span></div>
                 <div class="show-box">
