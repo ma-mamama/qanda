@@ -35,9 +35,10 @@ class AnswersController < ApplicationController
     @question.update(bestanswer_id: params[:id])
     @question.save
     redirect_to question_path(@question), status: :see_other
-    # end
+  rescue StandardError => e
+    redirect_to request.referer, alert: e.message
   end
-  
+
   private
 
   def answer_params
