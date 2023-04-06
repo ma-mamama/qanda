@@ -12,6 +12,12 @@
     </div>
     <div class="show-footer">
         <div>
+            <%= link_to add_bestanswer_question_answer_path(question_id, answer.id),
+                data: { turbo_method: 'put' } do %>
+                <button type="button" class="btn btn-primary">ベストアンサーに登録する</button>
+            <% end %>
+        </div>
+        <div>
             <%= link_to add_good_question_answer_path(question_id, answer.id),
                 data: { turbo_method: 'put' },remote: true do %>
                 いいね
@@ -25,5 +31,5 @@
             <%= link_to '削除', [answer.question, answer],
                 data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
         </div>
-
+    </div>
 </turbo-frame>
