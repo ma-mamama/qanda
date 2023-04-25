@@ -1,7 +1,46 @@
 <% content_for :css do %>
     <%= stylesheet_link_tag 'questions/index', "data-turbo-track": "reload" %>
 <% end %>
+
 <body>
+    
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+  <button
+      class="nav-link active"
+      id="resolved-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#resolved"
+      type="button"
+      role="tab"
+      aria-controls="resolved"
+      aria-selected="true"
+    >
+      解決
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+  <button
+      class="nav-link"
+      id="profile-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#unsolved"
+      type="button"
+      role="tab"
+      aria-controls="unsolved"
+      aria-selected="false"
+    >
+      未解決
+  </button>
+
+<div class="tab-content" id="myTabContent">
+  <div
+    class="tab-pane fade show active"
+    id="resolved"
+    role="tabpanel"
+    aria-labelledby="resolved-tab"
+  >
+
 <br>
 <br>
 <br>
@@ -57,4 +96,18 @@
 <div class="right">
 <%= link_to '質問を入力', new_question_path %>
 </div>
+
+
+  </div>
+  <div
+    class="tab-pane fade"
+    id="unsolved"
+    role="tabpanel"
+    aria-labelledby="unsolved-tab"
+  >
+    ちくしょー
+  </div>
+
+</div><!-- .tab-pane -->
+
 </body>
