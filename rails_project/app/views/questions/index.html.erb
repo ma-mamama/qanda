@@ -3,7 +3,7 @@
 <% end %>
 
 <body>
-    
+
   <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
   <button
@@ -16,7 +16,7 @@
       aria-controls="resolved"
       aria-selected="true"
     >
-      解決
+      未解決
     </button>
   </li>
   <li class="nav-item" role="presentation">
@@ -30,8 +30,10 @@
       aria-controls="unsolved"
       aria-selected="false"
     >
-      未解決
+      解決
   </button>
+  </li>
+  </ul>
 
 <div class="tab-content" id="myTabContent">
   <div
@@ -40,14 +42,11 @@
     role="tabpanel"
     aria-labelledby="resolved-tab"
   >
-
 <br>
-<br>
-<br>
-
 <h1>質問一覧</h1>
 
 <% @questions.each do |question| %>
+<% if !question.bestanswer_id %>
 <table>
     <tr>
         <td>
@@ -82,11 +81,16 @@
             </table>
         </td>
     </tr>
+    <tr>
+    <td>
+    <div class="padding">
+    <p class="hr"></p>
+    </div>
+    <p class="height"></p>
+    <% end %>
+    </td>
+    </tr>
 </table>
-<div class="padding">
-<p class="hr"></p>
-</div>
-<p class="height"></p>
 <% end %>
 
 
@@ -94,17 +98,64 @@
 <%= link_to '質問を入力', new_question_path %>
 </div>
 
-
   </div>
+  
   <div
     class="tab-pane fade"
     id="unsolved"
     role="tabpanel"
-    aria-labelledby="unsolved-tab"
-  >
-    ちくしょー
-  </div>
+    aria-labelledby="unsolved-tab">　
+    
+    
+    <h1>質問一覧</h1>
+    <% @questions.each do |question| %>
+    <% if question.bestanswer_id %>
+<table>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td width="30"></td>
+                    <td width="60">質問：</td>
+                    <td width="460"><%= question.title %></td>
+                    <td width="200"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="30"></td>
+                    <td width="60">内容：</td>
+                    <td width="460"><%= question.content %></td>
+                    <td width="200"></td>
+                    <td>from . </td>
+                    <td width="150"><%= question.name %></td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td><%= link_to question_path(question) do %> <button class="btn btn-secondary btn-lg show" >詳細</button><%end%></td><td></td>
+                    <td><%= link_to edit_question_path(question) do %> <button class="btn btn-secondary btn-lg edit" >編集</button><%end%></td><td></td>
+                    <td><%= link_to question_path(question), data: 
+                        {turbo_method: 'delete', turbo_confirm: '削除してもよろしいですか？' } do %><button class="btn btn-secondary btn-lg delete" >削除</button><%end%></td><td></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <div class="padding">
+        <p class="hr"></p>
+        </div>
+        <p class="height"></p>
+        <% end %>
+        </td>
+    </tr>
+</table>
+
+<% end %>
 
 </div>
-
+</div>
 </body>
