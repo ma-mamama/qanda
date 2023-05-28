@@ -13,7 +13,7 @@ gem 'sprockets-rails'
 # gem "sqlite3", "~> 1.4"
 # gem "mysql2"
 
-gem 'sqlite3', '~> 1.4'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma'
@@ -52,6 +52,7 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
+gem 'dotenv-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -66,6 +67,8 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'solargraph'
+
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -85,3 +88,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :production do
+  gem 'mysql2'
+
+end
+
