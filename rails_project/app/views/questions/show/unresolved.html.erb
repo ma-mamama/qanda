@@ -1,0 +1,53 @@
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'questions/show', "data-turbo-track": "reload" %>
+<% end %>
+
+<div class="show">
+<h1 class="show-title">質問確認画面</h1>
+<div class="show-container show-question">
+    <div class="show-header">質問</div>
+    <div class="show-box">
+        <div class="show-box-name">
+            <div>氏名</div> 
+            <div><%= @question.name %></div>
+        </div>
+        <div class="show-box-title">
+            <div>表題</div>
+            <div><%= @question.title %></div>
+        </div>
+        <div class="show-box-contents">
+            <div>質問内容</div> 
+            <div><%= @question.content %></div>
+        </div>
+    </div>
+</div>
+ 
+
+<% @question.answers.each_with_index do |answer, i| %>
+    <div class="show-container show-answer">
+        <div class="show-header">回答 <span><%= i + 1 %></span></div>
+            <%= render partial: "questions/answer", locals: {question_id: @question.id, answer: answer} %>
+        </div>
+    </div>
+<% end %>
+
+<div class="show-container show-do-answer">
+     <div class="show-header">回答を入力</div>
+    <%= form_with model: [@question, @question.answers.build] do |form| %>
+    <div class="show-box">
+        <div class="show-box-name">
+            <div>氏名</div> 
+            <div><%= form.text_field :name %></div>
+        </div>
+        <div class="show-box-contents">
+            <div>回答内容</div>
+            <div><%= form.text_area :content %></div>
+        </div>
+    </div>
+    <div class="show-footer">
+        <%= form.submit "追加", class: "show-add-button"%>
+    </div>    
+    <% end %>
+</div>
+<%= link_to '質問一覧に戻る', questions_path, class: "show-index-link" %>
+</div>

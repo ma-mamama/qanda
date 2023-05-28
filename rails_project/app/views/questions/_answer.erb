@@ -1,0 +1,35 @@
+<turbo-frame id=<%= "answer_#{answer.id}" %>>
+
+    <div class="show-box">
+        <div class="show-box-name">
+            <div>氏名</div> 
+            <div><%= answer.name %></div>
+        </div>
+        <div class="show-box-contents">
+            <div>回答内容</div>
+            <div><%= safe_join(answer.content.split("\n"), tag(:br)) %></div>
+        </div>
+    </div>
+    <div class="show-footer">
+        <div>
+            <%= link_to add_bestanswer_question_answer_path(question_id, answer.id),
+                data: { turbo_method: 'put' } do %>
+                <button type="button" class="btn btn-primary">ベストアンサーに登録する</button>
+            <% end %>
+        </div>
+        <div>
+            <%= link_to add_good_question_answer_path(question_id, answer.id),
+                data: { turbo_method: 'put' },remote: true do %>
+                いいね
+            <% end %>
+        </div>
+        <%= tag.div class: "image_good"%>
+        <div>
+            <%= answer.good %>
+        </div>
+        <div>
+            <%= link_to '削除', [answer.question, answer],
+                data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
+        </div>
+    </div>
+</turbo-frame>

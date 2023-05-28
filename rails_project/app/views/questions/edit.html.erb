@@ -1,2 +1,13 @@
-<h1>Edit</h1>
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'questions/edit',"data-turbo-track": "reload" %>
+<% end %>
+
+<h1>編集</h1>
 <%= render partial: 'form' %>
+
+<body>
+<div class="class1">
+<%= image_tag 'edit.jpg' ,size: '400x200',align: '500x200'%>
+</div>
+</body>
+

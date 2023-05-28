@@ -1,0 +1,16 @@
+body {
+    background-color: #cbeaf2;
+}
+
+h1 {
+  padding: 1rem 2rem;
+  border-left: 10px double #000;
+  background: #00a0e9;
+  width: 400px;
+  margin-top: 20px 
+}
+.class2{
+   position: absolute;
+	bottom: 20px;
+	right:20px;
+}

@@ -1,2 +1,12 @@
-<h1>New question</h1>
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'questions/new', "data-turbo-track": "reload" %>
+<% end %>
+
+<h1>新規質問作成</h1>
 <%= render partial: 'form' %>
+
+<body>
+<div class="class2">
+<%= image_tag 'question.jpg' ,size: '400x270',align: '500x200'%>
+</div>
+</body>
