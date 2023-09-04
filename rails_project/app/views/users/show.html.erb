@@ -1,0 +1,12 @@
+<h1>プロファイル</h1>
+
+
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>コメント : <%= @user.comment %></p>
+<p>画像</p>
+<br>
+<%= image_tag @user.avatar %>
+
+
+<%= link_to '質問一覧に戻る', questions_path, class: "show-index-link" %>
