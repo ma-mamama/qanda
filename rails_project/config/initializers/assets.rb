@@ -10,6 +10,7 @@ Rails.application.config.assets.precompile += %w(
     questions/new.css
     questions/edit.css
     users/sign_up.css
+    users/sign_in.css
     common/header.css
     bootstrap.min.js
     popper.js
