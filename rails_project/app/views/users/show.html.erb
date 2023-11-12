@@ -1,12 +1,114 @@
-<h1>プロファイル</h1>
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'users/show', "data-turbo-track": "reload" %>
+<% end %>
+    <div class="container">
+        <div class="profile border-bottom">
+            <div>
+                <% if @user.avatar.attached?%>
+                    <%= image_tag @user.avatar, class:'profile-image' %> 
+                <% else %>
+                    <%= image_tag ("noimage.png"), class:'profile-image' %> 
+                <% end %>
+            </div>
+            <div>
+                <div class="name"><%= @user.name %></div>
+                <div class="email"><%= @user.email %></div>
+                <div class="comment balloon1-left">
+                    <p><%= @user.comment %></p>
+                </div>
+            </div>
+        </div>
+        <div class="contents">
+            <ul class="nav nav-underline justify-content-center nav-justified">
+                <li class="nav-item">
+                    <a id="question-tab" class="nav-link active" data-bs-toggle="tab" aria-current="page" href="javascript:void(0);">Question</a>
+                </li>
+                <li class="nav-item">
+                    <a id="answer-tab" class="nav-link" data-bs-toggle="tab" href="javascript:void(0);">Answer</a>
+                </li>
+            </ul>
+            <!-- カテゴリタブ -->
+            <div class="category">
+                <ul class="nav nav-pills justify-content-left">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" aria-current="page" href="#">全て</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#">回答受付中</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#">回答済み</a>
+                    </li>
+                    <li class="sort_button dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link" href="#">
+                            <%
+=begin%>
+ <img src="../img/sort_black_24dp.svg"> 
+<%
+=end%>
+                        </a>
+                        <ul class="sort-menu dropdown-menu">
+                            <li><a class="dropdown-item" href="#">投稿日時(早い順)</a></li>
+                            <li><a class="dropdown-item active" href="#">投稿日時(遅い順)</a></li>
+                            <li><a class="dropdown-item" href="#">回答数(多い順)</a></li>
+                            <li><a class="dropdown-item" href="#">回答数(少ない順)</a></li>
+                          </ul>
+                    </li>
+                </ul>
+            </div>
 
+            <div class="contents-box">
+                <div class="border-bottom">
+                    <div>
+                        <img src="../img/bestanswer.jpeg">
+                    </div>
+                    <div>
+                        <div>
+                            <a href="">xxxがわかりません。</a>
 
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>コメント : <%= @user.comment %></p>
-<p>画像</p>
-<br>
-<%= image_tag @user.avatar %>
+                        </div> 
+                        <div>
+                            ベストアンサー：この戦争を終わらせにきた
+                        </div>
+                        <div>
+                            投稿日時：2023/07/31 19:00
+                        </div>
+                    </div>
+                </div>
 
+                <div class="border-bottom">
+                    <div>
+                        <!-- <img src="../../../img/bestanswer.jpeg"> -->
+                    </div>
+                    <div>
+                        <div>
+                            <a href="">xxxがわかりません。</a>
+                        </div> 
+                        <div>
+                            ベストアンサー：この戦争を終わらせにきた
+                        </div>
+                        <div>
+                            投稿日時：2023/07/31 19:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h4 class="offcanvas-title" id="offcanvasRightLabel">Menu</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <h5>プロフィール</h5>
+            <ul>
+                <li><a href="">プロフィールを変更</a></li>
+            </ul>
+            
+          </div>
+        </div>
+    </div>
 <%= link_to '質問一覧に戻る', questions_path, class: "show-index-link" %>
