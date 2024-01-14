@@ -1,0 +1,31 @@
+{
+	"name": "dev-container", 
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+	"service": "web",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"KoichiSasada.vscode-rdbg",
+				"Vense.rails-snippets",
+				"Alexcvzz.vscode-sqlite",
+				"Shopify.ruby-lsp",
+				"Bung87.rails",
+				"Aki77.rails-db-schema",
+				"Castwide.solargraph"
+			],
+			"settings": {
+				"solargraph.transport": "external",
+				"solargraph.logLevel": "debug",
+				"solargraph.diagnostics": true,
+				"solargraph.hover": true,
+				"rdbg.saveBreakpoints": true,
+				"solargraph.autoformat": true,
+				"solargraph.formatting": true
+			}
+		}
+	},
+	"workspaceFolder": "/rails_project"
+}

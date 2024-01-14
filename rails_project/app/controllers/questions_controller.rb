@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   # 質問一覧表示
   def index
     @questions = Question.all
@@ -24,7 +25,7 @@ class QuestionsController < ApplicationController
   # 質問の登録
   def create
     # Questionモデルを初期化
-    @question = Question.new(question_params)
+    @question = current_user.questions.new question_params
     # QuestionモデルをDBへ保存
     if @question.save
       # showへリダイレクト

@@ -1,14 +1,12 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "type": "rdbg",
-        "name": "Debug Rails",
-        "request": "launch",
-        "command": "bin/rails",
-        "script": "s -b 0.0.0.0",
-        "args": [],
-        "askParameters": false
-      }
-    ]
-  }
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "rdbg",
+      "name": "Attach with rdbg (tcp 1234)", // Specify your favorite name
+      "request": "attach",
+      "debugPort": "1234",
+      "localfsMap": "/rails_project:${workspaceFolder}"
+    }
+  ]
+}
