@@ -1,0 +1,3 @@
+break /Users/masato/Dev/qanda/rails_project/app/controllers/questions_controller.rb:22
+break /Users/masato/Dev/qanda/rails_project/app/controllers/questions_controller.rb:21
+break /Users/masato/Dev/qanda/rails_project/app/controllers/questions_controller.rb:5
