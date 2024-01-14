@@ -58,40 +58,32 @@
             </div>
 
             <div class="contents-box">
+                <% @user.questions.each do |question| %>
                 <div class="border-bottom">
                     <div>
-                        <img src="../img/bestanswer.jpeg">
+                        <% if question.best_answer%>
+                        <%= image_tag 'bestanswer.jpeg' %>
+                        <%
+=begin%>
+ <img src="../img/bestanswer.jpeg"> 
+<%
+=end%>
+                        <% end %>
                     </div>
                     <div>
                         <div>
-                            <a href="">xxxがわかりません。</a>
+                            <a href=""><%= question.name%></a>
 
                         </div> 
                         <div>
-                            ベストアンサー：この戦争を終わらせにきた
+                            ベストアンサー：<%= question.best_answer&.name%>
                         </div>
                         <div>
-                            投稿日時：2023/07/31 19:00
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border-bottom">
-                    <div>
-                        <!-- <img src="../../../img/bestanswer.jpeg"> -->
-                    </div>
-                    <div>
-                        <div>
-                            <a href="">xxxがわかりません。</a>
-                        </div> 
-                        <div>
-                            ベストアンサー：この戦争を終わらせにきた
-                        </div>
-                        <div>
-                            投稿日時：2023/07/31 19:00
+                            投稿日時：<%= question.created_at.strftime('%Y/%m/%d %H:%M')%>
                         </div>
                     </div>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
